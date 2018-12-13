@@ -3,7 +3,7 @@
     <div class="col-md-10 col-md-offset-1">
         <?= $this->draw('admin/menu') ?>
         <h1>
-            Membership Applications
+            <?php echo \Idno\Core\Idno::site()->language()->_('Membership Applications'); ?>
         </h1>
     </div>
     <div class="col-md-10 col-md-offset-1">
@@ -12,15 +12,10 @@
             <?php
 
                 if (empty($vars['applications'])) {
-                    ?>
-                    You have no outstanding membership applications.
-                    <?php
+                    echo \Idno\Core\Idno::site()->language()->_('You have no outstanding membership applications.');
                 } else {
-                    ?>
-                    The following people have applied to join <?=\Idno\Core\site()->config()->getTitle()?>:
-                    <?php
+                    echo \Idno\Core\Idno::site()->language()->_('The following people have applied to join') . ' ' . \Idno\Core\site()->config()->getTitle() . ':';
                 }
-
             ?>
         </p>
 
@@ -49,7 +44,7 @@
                         </div>
                         <div class="col-md-2">
                             <p>
-                                <small><strong>Applied</strong><br><time datetime="<?= date('r', $user->created) ?>" class="dt-published"><?= date('r', $user->created) ?></time></small>
+                                <small><strong><?=\Idno\Core\Idno::site()->language()->_('Applied'); ?></strong><br><time datetime="<?= date('r', $user->created) ?>" class="dt-published"><?= date('r', $user->created) ?></time></small>
                             </p>
                         </div>
                         <div class="col-md-1">
